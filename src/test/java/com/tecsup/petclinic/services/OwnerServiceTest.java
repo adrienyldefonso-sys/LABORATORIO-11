@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 import static org.assertj.core.api.AssertionsForClassTypes.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -39,5 +41,18 @@ public class OwnerServiceTest {
 
         assertEquals(FIRST_NAME_EXPECTED, owner.getFirstName());
         assertEquals(LAST_NAME_EXPECTED, owner.getLastName());
+    }
+
+    @Test
+    public void testFindByLastName() {
+
+        String LAST_NAME = "Davis";
+        int SIZE_EXPECTED = 2;
+
+        List<OwnerDTO> owners = this.ownerService.findByLastName(LAST_NAME);
+
+        log.info("OWNERS FOUND :" + owners);
+
+        assertEquals(SIZE_EXPECTED, owners.size());
     }
 }
