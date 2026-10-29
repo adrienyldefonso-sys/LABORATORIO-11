@@ -55,4 +55,17 @@ public class OwnerServiceTest {
 
         assertEquals(SIZE_EXPECTED, owners.size());
     }
+
+    @Test
+    public void testFindByCity() {
+
+        String CITY = "Madison";
+        int SIZE_EXPECTED = 4;
+
+        List<OwnerDTO> owners = this.ownerService.findByCity(CITY);
+
+        log.info("OWNERS FOUND :" + owners);
+
+        assertEquals(SIZE_EXPECTED, owners.size());
+    }
 }
