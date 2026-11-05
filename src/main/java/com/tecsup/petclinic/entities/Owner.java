@@ -1,10 +1,7 @@
 package com.tecsup.petclinic.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.Set;
 
@@ -13,9 +10,12 @@ import java.util.Set;
  * @author jgomezm
  *
  */
-@NoArgsConstructor
-@Entity(name = "owners")
+@Entity
+@Table(name = "owners")
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Owner {
 
 	@Id
